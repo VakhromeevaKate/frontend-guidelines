@@ -1,7 +1,8 @@
-const initialState = {
-    loaded: 'status unknown'
-};
+import { combineReducers } from 'redux';
+import loaded from './loadstate';
+import data from './getdata';
 
-export default function loadstate(state = initialState) {
-    return state;
-}
+export default combineReducers({
+    loaded,
+    data
+});
