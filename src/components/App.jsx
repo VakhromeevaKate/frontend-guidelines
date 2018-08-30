@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 
 class App extends Component {
@@ -11,10 +12,14 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <div>State: {this.state}</div>
+        <div>State: { this.props.loaded } </div>
       </div>
     );
   }
 }
 
-export default App;
+function mapStateToProps (state) {
+  return {loaded: state.loaded};
+}
+
+export default connect(mapStateToProps)(App);

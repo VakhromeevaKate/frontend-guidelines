@@ -1,10 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import App from './components/App';
+import configureStore from './store/configureStore';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import App from './components/App.jsx';
 
 
 /* eslint-disable no-underscore-dangle */
@@ -12,12 +12,13 @@ const ext = window.__REDUX_DEVTOOLS_EXTENSION__;
 const devtoolMiddleware = ext && ext();
 /* eslint-enable */
 
-const store = createStore( () => {}, {}) //WAT ;)
-ReactDOM.render(
-<Provider store={store}>
-<App />
-</Provider>,
-document.getElementById('root')
-)
+const store = configureStore();
+
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+document.getElementById('root'));
+
 
 registerServiceWorker();
