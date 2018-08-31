@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Menu from './Menu';
 import './App.css';
 
 class App extends Component {
@@ -10,6 +11,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Frontend Dev Guidelines</h1>
         </header>
+        <Menu />
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
